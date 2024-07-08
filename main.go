@@ -13,8 +13,10 @@ func main() {
 
 	
 	var userName string
+	var userTickets int
 	// ask user for their name
 
 	userName = "Tom"
-	fmt.Println(userName)
+	userTickets = 2
+	fmt.Printf("User %v booked %v tickets.\n", userName, userTickets)
 }
