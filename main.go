@@ -12,11 +12,12 @@ func main() {
 	fmt.Println("Get your tickets here to attend")
 
 	
-	var userName string
+	var firstName string
 	var userTickets int
 	// ask user for their name
-	fmt.Scan(&userName)
+	fmt.Println("Enter your fiest name: ")
+	fmt.Scan(&firstName)
 
 	userTickets = 2
-	fmt.Printf("User %v booked %v tickets.\n", userName, userTickets)
+	fmt.Printf("User %v booked %v tickets.\n", firstName, userTickets)
 }
