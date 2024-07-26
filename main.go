@@ -33,7 +33,11 @@ func main() {
 		fmt.Println("Enter number of tickets: ")
 		fmt.Scan(&userTickets)
 
-		if userTickets < remainingTickets {
+		isValidName := len(firstName) >= 2 && len(lastName) >= 2
+		isValidEmail := strings.Contains(email, "@")
+		isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets
+
+		if isValidName && isValidEmail && isValidTicketNumber {
 			remainingTickets = remainingTickets - userTickets
 			bookings = append(bookings, firstName + " " + lastName)
 		
@@ -53,11 +57,19 @@ func main() {
 				fmt.Println("Our conference is booked out. Come back next year.")
 				break
 			}
-		} else if userTickets == remainingTickets {
-
+		} else if userTickets == 0 {
+			fmt.Println("うりきれです")
+			break
 		} else {
-			fmt.Printf("チケットないです")
-			continue
+			if !isValidName {
+				fmt.Println("名前が無効です")
+			}
+			if !isValidEmail {
+				fmt.Println("メールアドレスがむこうです")
+			}
+			if !isValidTicketNumber {
+				fmt.Println("チケット枚数が無効です")
+			}
 		}
 
 	}
